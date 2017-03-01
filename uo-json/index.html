@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>unus.one json</title>
+	<!-- use w3.js -->
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+</head>
+<body>
+
+<h1>unus.one json</h1>
+<p>ou-json</p>
+
+<div>
+	<select id="id01">
+		<option w3-repeat="customers">{{CustomerName}}</option>
+	</select>
+	
+	<ul id="id02">
+		<li w3-repeat="customers">{{CustomerName}}</li>
+	</ul>
+	
+	<table id="id03">
+	  <tr>
+		<th>Customer</th>
+		<th>City</th>
+		<th>Country</th>
+	  </tr>
+	  <tr w3-repeat="customers">
+		<td>{{CustomerName}}</td>
+		<td>{{City}}</td>
+		<td>{{Country}}</td>
+	  </tr>
+	</table>
+	
+	<table id="id04">
+	  <tr>
+		<th>Title</th>
+		<th>Artist</th>
+		<th>Price</th>
+	  </tr>
+	  <tr w3-repeat="cd">
+		<td>{{title}}</td>
+		<td>{{artist}}</td>
+		<td>{{price}}</td>
+	  </tr>
+	</table>
+	
+</div>
+
+<script>
+w3.getHttpObject("customers.js", myFunction);
+
+function myFunction(myObject) {
+  w3.displayObject("id01", myObject);
+  w3.displayObject("id02", myObject);
+  w3.displayObject("id03", myObject);
+}
+
+w3.getHttpObject("cd_catalog.js", myFunction2);
+
+function myFunction2(myObject2) {
+  w3.displayObject("id04", myObject2);
+}
+
+</script>
+
+</body>
+</html>
